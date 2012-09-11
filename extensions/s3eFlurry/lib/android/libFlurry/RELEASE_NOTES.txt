@@ -1,6 +1,69 @@
-Flurry Android SDK v2.2
-Build: 117
-Released: 8/15/11
+Flurry Android SDK v2.2.5
+Build: 122
+Released: 2/22/12
+
+Release notes for v2.2.5:
+------------------------------------------------
+- Unique Ids for event logs, error logs, and ad logs
+- Reports IMEI unique identifier given user granted permission
+- Checksum for validating data integrity of session reports
+
+
+Release notes for v2.2.4:
+------------------------------------------------
+The Flurry Android 2.2.4 provides the following changes:
+
+- Fix to event timing
+- Records prior session getOffer ads if they've been reactivated in the current session
+
+Release notes for v2.2.3:
+------------------------------------------------
+The Flurry Android 2.2.3 provides the following changes:
+
+Update Session timeOffset logic to avoid possible ad id collisions within a session.
+
+Properly reset all AppCircleModule session-related data on each valid session start.
+
+Refactors generating of urls from BannerView.
+
+Release notes for v2.2.2:
+------------------------------------------------
+The Flurry Android 2.2.2 provides the following changes:
+
+Fixes a timing parameter for buy click links for getOffer.
+
+Increases the image cache.
+
+Adds more debug logging for logEvent methods.
+
+The Flurry Android 2.2.1 provides the following changes:
+
+Fixes NullPointerException when event for failed Android Market
+launch does not have an AppCircleCallback set.
+
+The Flurry Android 2.2 provides the following changes:
+
+Adds API to optionally set session reporting request to HTTPS.
+
+Detects and report devices with non-unique device IDs.
+
+
+Release notes for v2.2.1:
+------------------------------------------------
+The Flurry Android 2.2.1 provides the following additional changes to Flurry Android 2.2:
+
+Fixes NullPointerException when event for failed Android Market launch does not have an
+AppCircleCallback set.
+
+The Flurry Android 2.2 provides the following changes:
+
+Adds API to optionally set session reporting request to HTTPS.
+
+Detects and report devices with non-unique device IDs.
+
+Fixes NullPointerException, ArrayOutOfBoundsException, ConcurrentModificationException on resume
+of session.
+
 
 Release notes for v2.2:
 ------------------------------------------------
