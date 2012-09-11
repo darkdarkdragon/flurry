@@ -100,7 +100,7 @@ s3eResult s3eFlurryInit_platform()
     if (!g_s3eFlurrySetDefaultText)
         goto fail;
 
-    g_s3eFlurryShowAdBanner = env->GetMethodID(cls, "s3eFlurryShowAdBanner", "(Z)V");
+    g_s3eFlurryShowAdBanner = env->GetMethodID(cls, "s3eFlurryShowAdBanner", "(ZZ)V");
     if (!g_s3eFlurryShowAdBanner)
         goto fail;
 
@@ -181,10 +181,10 @@ void s3eFlurrySetUserGender_platform(const s3eFlurryUserGender gender)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
 
-	if(gender == S3E_FLURRY_MALE)
-		env->CallVoidMethod(g_Obj, g_s3eFlurrySetUserGender, true);
-	else if(gender == S3E_FLURRY_FEMALE)
-		env->CallVoidMethod(g_Obj, g_s3eFlurrySetUserGender, false);
+    if(gender == S3E_FLURRY_MALE)
+        env->CallVoidMethod(g_Obj, g_s3eFlurrySetUserGender, true);
+    else if(gender == S3E_FLURRY_FEMALE)
+        env->CallVoidMethod(g_Obj, g_s3eFlurrySetUserGender, false);
 }
 
 void s3eFlurrySetLocation_platform(s3eLocation* location)
@@ -218,17 +218,14 @@ void s3eFlurrySetDefaultText_platform(const char* text)
     env->CallVoidMethod(g_Obj, g_s3eFlurrySetDefaultText, text_jstr);
 }
 
-void s3eFlurryShowAdBanner_platform(const s3eBool show)
+void s3eFlurryShowAdBanner_platform(const s3eBool show, const s3eBool atTop)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-	if(show == S3E_TRUE)
-		env->CallVoidMethod(g_Obj, g_s3eFlurryShowAdBanner, true);
-	if(show == S3E_FALSE)
-		env->CallVoidMethod(g_Obj, g_s3eFlurryShowAdBanner, false);
+    env->CallVoidMethod(g_Obj, g_s3eFlurryShowAdBanner, show == S3E_TRUE ? true : false, atTop == S3E_TRUE ? true : false);
 }
 
 void s3eFlurryShowOfferWall_platform()
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-	env->CallVoidMethod(g_Obj, g_s3eFlurryShowOfferWall);
+    env->CallVoidMethod(g_Obj, g_s3eFlurryShowOfferWall);
 }

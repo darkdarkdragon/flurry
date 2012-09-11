@@ -196,7 +196,7 @@ void s3eFlurrySetDefaultText(const char* text) run_on_os_thread
  * @par Required Header Files
  * s3eFlurry.h
  */
-void s3eFlurryShowAdBanner(const s3eBool show) run_on_os_thread
+void s3eFlurryShowAdBanner(const s3eBool show, const s3eBool atTop) run_on_os_thread
 
 /**
  * Show Flurry App Circle Offer catalog

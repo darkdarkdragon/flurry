@@ -96,10 +96,10 @@ static void s3eFlurrySetDefaultText_wrap(const char* text)
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eFlurrySetDefaultText, 1, text);
 }
 
-static void s3eFlurryShowAdBanner_wrap(const s3eBool show)
+static void s3eFlurryShowAdBanner_wrap(const s3eBool show, const s3eBool atTop)
 {
     IwTrace(FLURRY_VERBOSE, ("calling s3eFlurry func on main thread: s3eFlurryShowAdBanner"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eFlurryShowAdBanner, 1, show);
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eFlurryShowAdBanner, 2, show, atTop);
 }
 
 static void s3eFlurryShowOfferWall_wrap()

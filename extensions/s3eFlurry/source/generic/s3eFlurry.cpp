@@ -25,70 +25,70 @@ void s3eFlurryTerminate()
 
 void s3eFlurryStart(const char* ID)
 {
-	s3eFlurryStart_platform(ID);
+    s3eFlurryStart_platform(ID);
 }
 
 void s3eFlurryLogEvent(const char* eventName, const s3eBool timed)
 {
-	s3eFlurryLogEvent_platform(eventName, timed);
+    s3eFlurryLogEvent_platform(eventName, timed);
 }
 
 void s3eFlurryEndTimedEvent(const char* eventName)
 {
-	s3eFlurryEndTimedEvent_platform(eventName);
+    s3eFlurryEndTimedEvent_platform(eventName);
 }
 
 void s3eFlurryLogError(const char* errorName, const char* errorMessage)
 {
-	s3eFlurryLogError_platform(errorName, errorMessage);
+    s3eFlurryLogError_platform(errorName, errorMessage);
 }
 
 void s3eFlurrySetUserID(const char* userID)
 {
-	s3eFlurrySetUserID_platform(userID);
+    s3eFlurrySetUserID_platform(userID);
 }
 
 void s3eFlurrySetUserAge(const uint8 age)
 {
-	s3eFlurrySetUserAge_platform(age);
+    s3eFlurrySetUserAge_platform(age);
 }
 
 void s3eFlurrySetUserGender(const s3eFlurryUserGender gender)
 {
-	s3eFlurrySetUserGender_platform(gender);
+    s3eFlurrySetUserGender_platform(gender);
 }
 
 void s3eFlurrySetLocation(s3eLocation* location)
 {
-	s3eFlurrySetLocation_platform(location);
+    s3eFlurrySetLocation_platform(location);
 }
 
 void s3eFlurrySetSessionReportOnClose(const s3eBool sendReportOnClose)
 {
-	s3eFlurrySetSessionReportOnClose_platform(sendReportOnClose);
+    s3eFlurrySetSessionReportOnClose_platform(sendReportOnClose);
 }
 
 void s3eFlurrySetSessionReportOnPause(const s3eBool sendReportOnPause)
 {
-	s3eFlurrySetSessionReportOnPause_platform(sendReportOnPause);
+    s3eFlurrySetSessionReportOnPause_platform(sendReportOnPause);
 }
 
 void s3eFlurryAppCircleEnable()
 {
-	s3eFlurryAppCircleEnable_platform();
+    s3eFlurryAppCircleEnable_platform();
 }
 
 void s3eFlurrySetDefaultText(const char* text)
 {
-	s3eFlurrySetDefaultText_platform(text);
+    s3eFlurrySetDefaultText_platform(text);
 }
 
-void s3eFlurryShowAdBanner(const s3eBool show)
+void s3eFlurryShowAdBanner(const s3eBool show, const s3eBool atTop)
 {
-	s3eFlurryShowAdBanner_platform(show);
+    s3eFlurryShowAdBanner_platform(show, atTop);
 }
 
 void s3eFlurryShowOfferWall()
 {
-	s3eFlurryShowOfferWall_platform();
+    s3eFlurryShowOfferWall_platform();
 }

@@ -66,7 +66,7 @@ void s3eFlurryAppCircleEnable_platform();
 
 void s3eFlurrySetDefaultText_platform(const char* text);
 
-void s3eFlurryShowAdBanner_platform(const s3eBool show);
+void s3eFlurryShowAdBanner_platform(const s3eBool show, const s3eBool atTop);
 
 void s3eFlurryShowOfferWall_platform();
 

@@ -35,12 +35,12 @@ class s3eFlurry
     boolean m_isBannerDisplayed = false;
     String message = "Flurry for Marmalade SDK";
 
-	private boolean CheckAppCircle()
-	{
-		appCircle = FlurryAgent.getAppCircle();
+    private boolean CheckAppCircle()
+    {
+        appCircle = FlurryAgent.getAppCircle();
         return(appCircle != null);
-	}
-	
+    }
+    
     // Flurry Analaytics
     public void s3eFlurryStart(String ID)
     {
@@ -90,7 +90,7 @@ class s3eFlurry
     // Flurry App Circle
     public void s3eFlurryAppCircleEnable()
     {
-		FlurryAgent.setCatalogIntentName("s3e.offer.intent");
+        FlurryAgent.setCatalogIntentName("s3e.offer.intent");
         FlurryAgent.enableAppCircle();
         Log.d("s3eFlurry", "////// App Circle Enabled //////");
     }
@@ -100,11 +100,11 @@ class s3eFlurry
         message = text;
         Log.d("s3eFlurry", "////// Default Banner Text Changed: " + message + " //////");
     }
-    public void s3eFlurryShowAdBanner(boolean showBanner)
+    public void s3eFlurryShowAdBanner(boolean showBanner, final boolean atTop)
     {
         if(true == showBanner) // Show Banner
         {
-			if(CheckAppCircle())
+            if(CheckAppCircle())
             {
                 appCircle.setDefaultNoAdsMessage(message);
 
@@ -124,9 +124,9 @@ class s3eFlurry
                 }
 
                 // Define the layout parameters of the view
-                final LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                                                        LinearLayout.LayoutParams.FILL_PARENT,//LinearLayout.LayoutParams.WRAP_CONTENT,
-                                                        80);//LinearLayout.LayoutParams.FILL_PARENT);
+//                final LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+//                                                        LinearLayout.LayoutParams.FILL_PARENT,//LinearLayout.LayoutParams.WRAP_CONTENT,
+//                                                        80);//LinearLayout.LayoutParams.FILL_PARENT);
 
                 LoaderAPI.getActivity().LoaderThread().runOnOSThread(new Runnable()
                 {
@@ -134,8 +134,20 @@ class s3eFlurry
                     {
                         if(m_PromoView != null && !m_isBannerDisplayed)
                         {
+                            
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                                                    LinearLayout.LayoutParams.FILL_PARENT,
+                                                                    80);
+                            if (!atTop) {
+                                lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
+                            }
                             // Must add our group to index level 1 or it will not be shown
                             viewGroup.addView(m_PromoView, 1, lp);
+                            if (!atTop) {
+                                final int height = viewGroup.getHeight();
+                                m_PromoView.setPadding(0, height-80, 0, 0);
+                            }
+
                             Log.d("s3eFlurry", "Banner Displayed");
                             m_isBannerDisplayed = true; // We should ensure we only add the view once
                         }
@@ -154,12 +166,12 @@ class s3eFlurry
         }
     }
     public void s3eFlurryShowOfferWall()
-	{
-		if(CheckAppCircle())
-		{
-        	appCircle.openCatalog(LoaderActivity.m_Activity, "s3eAPPCIRCLE_OFFERWALL_HOOK");
+    {
+        if(CheckAppCircle())
+        {
+            appCircle.openCatalog(LoaderActivity.m_Activity, "s3eAPPCIRCLE_OFFERWALL_HOOK");
         }
-		else
-			Log.d("S3EFLURRY", "App Circle is not enabled");
+        else
+            Log.d("S3EFLURRY", "App Circle is not enabled");
     }
 }

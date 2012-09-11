@@ -23,7 +23,7 @@ typedef       void(*s3eFlurrySetSessionReportOnClose_t)(const s3eBool sendReport
 typedef       void(*s3eFlurrySetSessionReportOnPause_t)(const s3eBool sendReportOnPause);
 typedef       void(*s3eFlurryAppCircleEnable_t)();
 typedef       void(*s3eFlurrySetDefaultText_t)(const char* text);
-typedef       void(*s3eFlurryShowAdBanner_t)(const s3eBool show);
+typedef       void(*s3eFlurryShowAdBanner_t)(const s3eBool show, const s3eBool atTop);
 typedef       void(*s3eFlurryShowOfferWall_t)();
 
 /**
@@ -209,14 +209,14 @@ void s3eFlurrySetDefaultText(const char* text)
     g_Ext.m_s3eFlurrySetDefaultText(text);
 }
 
-void s3eFlurryShowAdBanner(const s3eBool show)
+void s3eFlurryShowAdBanner(const s3eBool show, const s3eBool atTop)
 {
     IwTrace(FLURRY_VERBOSE, ("calling s3eFlurry[12] func: s3eFlurryShowAdBanner"));
 
     if (!_extLoad())
         return;
 
-    g_Ext.m_s3eFlurryShowAdBanner(show);
+    g_Ext.m_s3eFlurryShowAdBanner(show, atTop);
 }
 
 void s3eFlurryShowOfferWall()

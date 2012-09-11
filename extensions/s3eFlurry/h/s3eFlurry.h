@@ -202,7 +202,7 @@ void s3eFlurrySetDefaultText(const char* text);
  * @par Required Header Files
  * s3eFlurry.h
  */
-void s3eFlurryShowAdBanner(const s3eBool show);
+void s3eFlurryShowAdBanner(const s3eBool show, const s3eBool atTop);
 
 /**
  * Show Flurry App Circle Offer catalog
